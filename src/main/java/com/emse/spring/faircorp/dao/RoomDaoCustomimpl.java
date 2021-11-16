@@ -6,6 +6,7 @@ import com.emse.spring.faircorp.model.WindowStatus;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 class RoomDaoCustomimpl implements RoomDaoCustom{
 
@@ -19,4 +20,13 @@ class RoomDaoCustomimpl implements RoomDaoCustom{
                 .setParameter("name", name)
                 .getSingleResult();
     }
+
+    @Override
+    public List<Room> findRoomsByBuildingId(Long id){
+        String jpql = "select r from Room r where r.building.id = :id";
+        return em.createQuery(jpql, Room.class)
+                .setParameter("id", id)
+                .getResultList();
+    }
+
 }

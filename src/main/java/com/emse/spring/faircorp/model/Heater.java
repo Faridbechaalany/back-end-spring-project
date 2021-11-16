@@ -27,14 +27,6 @@ public class Heater {
 
     }
 
-    public Room getRoom() {
-        return room;
-    }
-
-    public void setRoom(Room room) {
-        this.room = room;
-    }
-
     public Heater(String name, Room room, HeaterStatus status,Long power){
         this.heaterStatus = status;
         this.name = name;
@@ -72,5 +64,13 @@ public class Heater {
 
     public void setHeaterStatus(HeaterStatus heaterStatus) {
         this.heaterStatus = heaterStatus;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
     }
 }

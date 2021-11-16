@@ -27,4 +27,12 @@ class WindowDaoCustomImpl implements WindowDaoCustom {
     public void deleteByRoom(Long id) {
 
     }
+
+    @Override
+    public List<Window> findWindowsByRoomId(Long id) {
+        String jpql = "select w from Window w where w.room.id = :id";
+        return em.createQuery(jpql, Window.class)
+                .setParameter("id", id)
+                .getResultList();
+    }
 }

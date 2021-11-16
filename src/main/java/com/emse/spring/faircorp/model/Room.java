@@ -30,6 +30,9 @@ public class Room {
     @OneToMany(mappedBy = "room")
     private Set<Window> windows;
 
+    @ManyToOne
+    private Building building;
+
     public Room() {
 
     }
@@ -95,5 +98,13 @@ public class Room {
 
     public void setWindows(Set<Window> windows) {
         this.windows = windows;
+    }
+
+    public Building getBuilding() {
+        return building;
+    }
+
+    public void setBuilding(Building building) {
+        this.building = building;
     }
 }

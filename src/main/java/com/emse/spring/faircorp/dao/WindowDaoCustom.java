@@ -16,4 +16,7 @@ public interface WindowDaoCustom
     @Modifying
     @Query("delete from Window w where w.room.id = :id")
     void deleteByRoom(@Param("id") Long id);
+
+    List<Window> findWindowsByRoomId(Long id);
+
 }

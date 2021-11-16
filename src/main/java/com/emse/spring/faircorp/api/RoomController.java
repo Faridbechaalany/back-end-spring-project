@@ -37,6 +37,11 @@ public class RoomController {
         return roomDao.findById(id).map(RoomDto::new).orElse(null);
     }
 
+    @GetMapping(path = "/buildings/{buildingid}")
+    public List<RoomDto> findRoomsByBuildingId(@PathVariable Long buildingid) {
+        return roomDao.findRoomsByBuildingId(buildingid).stream().map(RoomDto::new).collect(Collectors.toList());
+    }
+
     @PostMapping
     public RoomDto create(@RequestBody RoomDto dto) {
         Room room = null;
